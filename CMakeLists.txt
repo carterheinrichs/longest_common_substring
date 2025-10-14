@@ -3,6 +3,4 @@ project(longest_common_substring)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(longest_common_substring main.cpp
-        fixme.cpp
-        fixme.h)
+add_executable(longest_common_substring main.cpp)

@@ -5,14 +5,12 @@
 
 using namespace std;
 
-vector<vector<int>> count_letters(string s, vector<vector<int>> dp, int wort)
+void count_letters(const string& s, vector<vector<int>>& dp, int wort)
 {
-    for (int i = 0; i < s.length(); ++i)
+    for (char current_char : s)
     {
-        char current = s[i];
-        dp[current][wort] += 1;
+        dp[static_cast<unsigned char>(current_char)][wort]++;
     }
-    return dp;
 }
 
 void lc_calc(vector<vector <int>> dp)
@@ -21,12 +19,7 @@ void lc_calc(vector<vector <int>> dp)
 
     for (int i =0 ; i < 256; ++i)
     {
-       for (int j = 0; j < 2; ++j)
-       {
-           if (i) {
-               counter++;
-           }
-       }
+        counter += min(dp[i][0], dp[i][1]);
     }
 
     cout << "VALUE: " << counter << endl;
@@ -48,8 +41,8 @@ int main()
     cout << eins << endl;
     cout << zwei << endl;
 
-    count_letters(eins, dp_vec, false);
-    count_letters(zwei, dp_vec, true);
+    count_letters(eins, dp_vec, 0);
+    count_letters(zwei, dp_vec, 1);
 
     lc_calc(dp_vec);
 
