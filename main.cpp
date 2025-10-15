@@ -28,16 +28,31 @@ void lc_calc(vector<vector <int>> dp)
 
 int main()
 {
+    cout << "LONGEST COMMON SUBSTRING" << endl;
+    cout << "------------------------" << endl;
+
     string eins = "abcde";
     string zwei = "ace";
 
+    cout << "BYO STRINGS? (y/n)";
+    char choice = 'N';
+    cin >> choice;
+    cin.ignore();
+
+    if (choice == 'y' || choice == 'Y') {
+        cout << "ENTER STRING 1:";
+        getline(cin, eins);
+
+        cout << "ENTER STRING 2:";
+        getline(cin, zwei);
+    }
+
     // 26 letters
     // 2 strings...
-    //int dp[256][2];
-    //vector<int> dp_vec;
     vector<vector<int>> dp_vec(256, vector<int>(2, 0));
 
 
+    cout << "STRINGS:" << endl;
     cout << eins << endl;
     cout << zwei << endl;
 
